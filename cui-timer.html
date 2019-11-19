@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <title>Cuitimer 倒计时插件</title>
-  <script src="../jquery.min.js"></script>
-  <script src="cui-timer.js"></script>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8" />
+		<title>Cuitimer 倒计时插件</title>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="cui-timer.js"></script>
+	</head>
+	<body>
 
-  <label class="cui-timer" data-config = '{"endtime":"2017-5-2 10:10:33","callback":"diyFunc"}'></label> <!-- callback为到时后的回调 -->
-  <hr>
-  <label class="cui-timer" data-config = '{"endtime":"2017-5-28 10:10:33","callback":"diyFunc"}'></label>
-  <hr>
-  <label class="cui-timer" data-config = '{"endtime":"2017-5-21 1:33:40","msec":true}'></label>
-  <hr>
-  <label class="cui-timer" data-config = '{"endtime":"2017-5-19 3:13:09"}'></label>
-  <hr>
+		<label class="cui-timer" data-config='{"endtime":"2019-12-2 10:10:33","callback":"diyFunc"}'></label>
+		<!-- callback为到时后的回调 -->
+		<hr>
+		<label class="cui-timer" data-config='{"endtime":"2019-12-28 10:10:33","callback":"diyFunc"}'></label>
+		<hr>
+		<label class="cui-timer" data-config='{"endtime":"2019-12-21 1:33:40","msec":true}'></label>
+		<hr>
+		<label class="cui-timer" data-config='{"endtime":"2019-12-19 3:13:09"}'></label>
+		<hr>
 
-  <script type="text/javascript">
-    $(function(){
-      $('.cui-timer').Cuitimer();
-    });
-    function diyFunc(){
-      $('.cui-timer').eq(0).css('color','red');
-    }
-  </script>
-</body>
+		<script type="text/javascript">
+			/*
+			 * 倒计时超级插件
+			 * 调用方法：页面底部调用：$('.cui-timer').Cuitimer(); 样式类名可以自定义。
+			 * 元素中需要加入data-config属性 如：<label class="cui-timer" data-config = '{"endtime":"2017-5-2 10:10:33","msec":false,"callback":"diyFunc"}'>
+			 * 三个参数：endtime结束时间，msec是否显示毫秒，callback 时间到期触发自定义回调函数
+			 * class样式：剩余天cui-day，剩余时间cui-time，毫秒cui-msec
+			 * @author Ryan
+			 */
+			$(function() {
+				$('.cui-timer').Cuitimer();
+			});
+			// 到期回调
+			function diyFunc() {
+				$('.cui-timer').eq(0).css('color', 'red');
+			}
+		</script>
+	</body>
 </html>
